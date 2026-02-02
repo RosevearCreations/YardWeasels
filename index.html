@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>YWI HSE</title>
+  <meta name="theme-color" content="#0b6c3d" />
+  <link rel="manifest" href="/public/manifest.json" />
+  <link rel="stylesheet" href="/style.css" />
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => navigator.serviceWorker.register('/public/service-worker.js'));
+    }
+  </script>
+</head>
+<body>
+  <header class="app-header">
+    <h1>YWI HSE</h1>
+    <nav>
+      <a class="active" href="#toolbox">Toolbox Talk</a>
+      <!-- Future: add links for PPE Check, HSE Inspection, First Aid Check, Emergency Drill -->
+    </nav>
+  </header>
+
+  <main class="container">
+    <!-- TOOLBOX TALK FORM (Form E) -->
+    <section id="toolbox" class="card">
+      <h2>Daily Toolbox Talk</h2>
+      <form id="toolboxForm">
+        <div class="grid">
+          <label>Site ID/Name
+            <input type="text" id="tb_site" required placeholder="e.g., Site-A" />
+          </label>
+          <label>Date
+            <input type="date" id="tb_date" required />
+          </label>
+          <label>Discussion Leader
+            <input type="text" id="tb_leader" required placeholder="Foreman / Supervisor" />
+          </label>
+        </div>
+
+        <label>Topics / Notes
+          <textarea id="tb_topics" rows="4" placeholder="Hazards today, controls, reminders (e.g., reversing dump trucks)"></textarea>
+        </label>
+
+        <h3>Attendees & Signatures</h3>
+        <div class="actions"><button type="button" id="addRowBtn">+ Add Attendee</button></div>
+        <table id="attendeesTable">
+          <thead>
+            <tr>
+              <th style="width: 28%">Name</th>
+              <th style="width: 20%">Role on Site</th>
+              <th>Signature</th>
+              <th style="width: 110px">Controls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows inserted by JS -->
+          </tbody>
+        </table>
+
+        <div class="form-footer">
+          <button type="submit" class="primary">Submit Toolbox Talk</button>
+          <button type="button" id="retryBtn" class="secondary">Retry Queued Submissions</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.2.0/dist/signature_pad.umd.min.js"></script>
+  <script src="/app.js"></script>
+</body>
+</html>
