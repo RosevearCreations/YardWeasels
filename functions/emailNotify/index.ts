@@ -58,8 +58,8 @@ serve(async (req) => {
 
     // Email routing rules
     const to: string[] = [];
-    const HSE = Deno.env.get('HSE_EMAIL');
-    const CHRIS = Deno.env.get('CHRIS_EMAIL');
+    const HSE = Deno.env.get('veardan@hotmail.com');
+    const CHRIS = Deno.env.get('jfrosevear@outlook.com');
     if (formType === 'E') { if (HSE) to.push(HSE); }
     // Later:
     // if (formType === 'A' || formType === 'C') { to.push(HSE!, CHRIS!); }
@@ -75,7 +75,7 @@ serve(async (req) => {
     `;
 
     // Send via Resend REST API (works in Deno)
-    const apiKey = Deno.env.get('RESEND_API_KEY');
+    const apiKey = Deno.env.get('re_g1Lt4ZsF_HGZU61JKRtRxAjaXM5jkWHR3');
     if (apiKey && to.length) {
       await fetch('https://api.resend.com/emails', {
         method: 'POST',
