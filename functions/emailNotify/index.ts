@@ -29,8 +29,8 @@ serve(async (req) => {
       return new Response(JSON.stringify({ ok: false, error: 'Missing fields' }), { status: 400, headers: { ...cors, 'Content-Type': 'application/json' } });
     }
 
-    const supabaseUrl = Deno.env.get('SUPABASE_URL')!;
-    const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE')!;
+    const supabaseUrl = Deno.env.get('https://jmqvkgiqlimdhcofwkxr.supabase.co/functions/v1/resend-email')!;
+    const serviceKey = Deno.env.get('b4184d2781e93699897a94ad4a30710b5e77c4487e2c055cd92d0318eb894732')!;
     const sb = createClient(supabaseUrl, serviceKey);
 
     // Insert into submissions
