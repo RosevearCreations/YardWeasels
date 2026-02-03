@@ -1,9 +1,9 @@
 :root {
-  --brand:#0b6c3d;
-  --bg:#f7f8f9;
-  --card:#ffffff;
-  --border:#e1e4e8;
-  --text:#111827;
+--brand:#0b6c3d;
+--bg:#f7f8f9;
+--card:#ffffff;
+--border:#e1e4e8;
+--text:#111827;
 }
 *{box-sizing:border-box}
 body{margin:0;font-family:system-ui,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--text)}
