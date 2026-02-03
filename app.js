@@ -1,5 +1,5 @@
 /* CONFIG: replace with your deployed function URL later */
-const FUNCTION_URL = 'https://YOUR-PROJECT.functions.supabase.co/emailNotify';
+const FUNCTION_URL = 'https://jmqvkgiqlimdhcofwkxr.supabase.co/functions/v1/resend-email';
 const OUTBOX_KEY = 'ywi_outbox_v1';
 
 const attendeesTable = document.getElementById('attendeesTable').querySelector('tbody');
@@ -135,4 +135,5 @@ async function flushOutbox(){
 }
 
 retryBtn.addEventListener('click', flushOutbox);
+
 window.addEventListener('online', () => { if (getOutbox().length) flushOutbox(); });
