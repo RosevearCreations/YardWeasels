@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,11 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>YWI HSE</title>
   <meta name="theme-color" content="#0b6c3d" />
-  <link rel="manifest" href="/public/manifest.json" />
+  <link rel="manifest" href="/manifest.json" />
   <link rel="stylesheet" href="/style.css" />
   <script>
     if ('serviceWorker' in navigator) {
-      window.addEventListener('load', () => navigator.serviceWorker.register('/public/service-worker.js'));
+      window.addEventListener('load', () => navigator.serviceWorker.register('/service-worker.js'));
     }
   </script>
 </head>
@@ -20,6 +21,7 @@
       <a class="active" href="#toolbox">Toolbox Talk</a>
       <a href="#ppe">PPE Check</a>
       <a href="#firstaid">First Aid Kit</a>
+      <a href="#inspect">Site Inspection</a>
     </nav>
   </header>
 
@@ -144,6 +146,62 @@
           <tbody><!-- rows inserted by JS --></tbody>
         </table>
 
+        <section id="inspect" class="card">
+<h2>Site Inspection</h2>
+<form id="inspForm">
+<div class="grid">
+<label>Site ID/Name
+<input type="text" id="insp_site" required placeholder="e.g., Site-A" />
+</label>
+<label>Date
+<input type="date" id="insp_date" required />
+</label>
+<label>Inspector
+<input type="text" id="insp_inspector" required placeholder="Your name" />
+</label>
+</div>
+
+
+<h3>Roster</h3>
+<div class="actions"><button type="button" id="inspAddWorker">+ Add Worker</button></div>
+<table id="inspRoster">
+<thead>
+<tr>
+<th style="width:35%">Name</th>
+<th style="width:30%">Role on Site</th>
+<th style="width:110px">Controls</th>
+</tr>
+</thead>
+<tbody><!-- rows inserted by JS --></tbody>
+</table>
+
+
+<h3>Hazards</h3>
+<div class="actions"><button type="button" id="inspAddHazard">+ Add Hazard</button></div>
+<table id="inspHazards">
+<thead>
+<tr>
+<th>Hazard</th>
+<th>Location</th>
+<th>Risk</th>
+<th>Action</th>
+<th>Assigned To</th>
+<th>Completed?</th>
+<th>Completed By</th>
+<th>Completed Date</th>
+<th style="width:110px">Controls</th>
+</tr>
+</thead>
+<tbody><!-- rows inserted by JS --></tbody>
+</table>
+
+
+<div class="form-footer">
+<button type="submit" class="primary">Submit Site Inspection</button>
+<button type="button" class="secondary" data-role="retry-outbox">Retry Queued Submissions</button>
+</div>
+</form>
+</section>
         <div class="form-footer">
           <button type="submit" class="primary">Submit First Aid Check</button>
           <button type="button" class="secondary" data-role="retry-outbox">Retry Queued Submissions</button>
@@ -156,3 +214,5 @@
   <script src="/app.js"></script>
 </body>
 </html>
+
+
