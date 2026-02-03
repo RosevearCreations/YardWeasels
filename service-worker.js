@@ -1,5 +1,5 @@
-const CACHE = 'ywi-hse-v3';
-const ASSETS = ['/', '/index.html', '/style.css', '/app.js', '/manifest.json'];
+const CACHE = 'ywi-hse-v1';
+const ASSETS = ['/', '/index.html', '/style.css', '/app.js', '/public/manifest.json'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
 });
@@ -11,6 +11,4 @@ self.addEventListener('fetch', e => {
       return res;
     }))
   );
-
 });
-
