@@ -18,7 +18,8 @@
     <h1>YWI HSE</h1>
     <nav>
       <a class="active" href="#toolbox">Toolbox Talk</a>
-      <!-- Future: add links for PPE Check, HSE Inspection, First Aid Check, Emergency Drill -->
+      <a href="#ppe">PPE Check</a>
+      <a href="#firstaid">First Aid Kit</a>
     </nav>
   </header>
 
@@ -61,7 +62,91 @@
 
         <div class="form-footer">
           <button type="submit" class="primary">Submit Toolbox Talk</button>
-          <button type="button" id="retryBtn" class="secondary">Retry Queued Submissions</button>
+          <button type="button" class="secondary" data-role="retry-outbox">Retry Queued Submissions</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- PPE CHECK FORM (Form D) -->
+    <section id="ppe" class="card">
+      <h2>PPE Compliance Check</h2>
+      <form id="ppeForm">
+        <div class="grid">
+          <label>Site ID/Name
+            <input type="text" id="ppe_site" required placeholder="e.g., Site-A" />
+          </label>
+          <label>Date
+            <input type="date" id="ppe_date" required />
+          </label>
+          <label>Checked By
+            <input type="text" id="ppe_checker" required placeholder="Foreman / Supervisor" />
+          </label>
+        </div>
+
+        <h3>Roster</h3>
+        <div class="actions"><button type="button" id="ppeAddRowBtn">+ Add Worker</button></div>
+        <table id="ppeTable">
+          <thead>
+            <tr>
+              <th style="width: 28%">Name</th>
+              <th style="width: 20%">Role on Site</th>
+              <th>Shoes</th>
+              <th>Vest</th>
+              <th>Plugs</th>
+              <th>Goggles</th>
+              <th>Muffs</th>
+              <th>Gloves</th>
+              <th style="width:110px">Controls</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- rows inserted by JS -->
+          </tbody>
+        </table>
+
+        <div class="form-footer">
+          <button type="submit" class="primary">Submit PPE Check</button>
+          <button type="button" class="secondary" data-role="retry-outbox">Retry Queued Submissions</button>
+        </div>
+      </form>
+    </section>
+
+    <!-- FIRST AID KIT (Form B) -->
+    <section id="firstaid" class="card">
+      <h2>First Aid Kit – Daily Check</h2>
+      <form id="faForm">
+        <div class="grid">
+          <label>Site ID/Name
+            <input type="text" id="fa_site" required placeholder="e.g., Site-A" />
+          </label>
+          <label>Date
+            <input type="date" id="fa_date" required />
+          </label>
+          <label>Checked By
+            <input type="text" id="fa_checker" required placeholder="Responsible person" />
+          </label>
+        </div>
+
+        <div class="notice">Flag triggers email when quantity ≤ min or expiry within 30 days.</div>
+
+        <h3>Items</h3>
+        <div class="actions"><button type="button" id="faAddRowBtn">+ Add Item</button></div>
+        <table id="faTable">
+          <thead>
+            <tr>
+              <th style="width:40%">Item</th>
+              <th style="width:15%">Quantity</th>
+              <th style="width:15%">Min Stock</th>
+              <th style="width:20%">Expiry (optional)</th>
+              <th style="width:10%">Controls</th>
+            </tr>
+          </thead>
+          <tbody><!-- rows inserted by JS --></tbody>
+        </table>
+
+        <div class="form-footer">
+          <button type="submit" class="primary">Submit First Aid Check</button>
+          <button type="button" class="secondary" data-role="retry-outbox">Retry Queued Submissions</button>
         </div>
       </form>
     </section>
